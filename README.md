@@ -4,6 +4,12 @@ High-resolution graphics in awk
 Just to keep things interesting for myself, I dove into using unicode 'QUARTER-BLOCK' characters (four pixels per character) while still only using two colors! I hope you like the results.
 
 
+https://user-images.githubusercontent.com/32614987/200144651-7d8a33f3-9592-4e60-a669-fabee1602a67.mp4
+
+
+(Better quality version at: https://youtu.be/WLVDlwVeP9M)
+
+# explanation
 In my previous graphics related programs, I used the unicode character 'UPPER-HALF-BLOCK' (U+2580) "▀" to draw pixels. This looks great because of a couple reasons:
  - it has double the resolution of the 'FULL BLOCK' (U+2588) "█" because of an 'upper' and 'lower' part
  - it produces more 'square' pixels in most fonts
@@ -104,9 +110,3 @@ and with a single sprintf() we can add the colors and unicode character to a 'li
 Any leftover color combinations (four different colored pixels) need to be handled by the first mentioned process
 
 An example of how this looks like, compared to the old '2 pixel' resolution:
-
-
-https://user-images.githubusercontent.com/32614987/200144651-7d8a33f3-9592-4e60-a669-fabee1602a67.mp4
-
-
-(Better quality version at: https://youtu.be/WLVDlwVeP9M)
