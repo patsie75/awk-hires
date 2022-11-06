@@ -30,6 +30,7 @@ I came up with the following idea:
 The RGB to Luminance formula I found on the internet states: Lum = R * 0.299 + G * 0.587 + B * 0.114
  
 Example:
+
     +-----+-----+     +-----+-----+   dist[1->2] = 3.0
     |  1  |  2  |     |  1  |  2  |   dist[1->3] = 0.1
     | blk | red |     | 0.0 | 3.0 |   dist[1->4] = 8.8
