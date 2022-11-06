@@ -30,34 +30,34 @@ I came up with the following idea:
 The RGB to Luminance formula I found on the internet states: Lum = R * 0.299 + G * 0.587 + B * 0.114
  
 Example:
- +-----+-----+     +-----+-----+   dist[1->2] = 3.0
- |  1  |  2  |     |  1  |  2  |   dist[1->3] = 0.1
- | blk | red |     | 0.0 | 3.0 |   dist[1->4] = 8.8
- +-----+-----+  >  +-----+-----+   dist[2->3] = 2.9
- |  3  |  4  |     |  3  |  4  |   dist[2->4] = 5.8
- | blu | yel |     | 0.1 | 8.8 |   dist[3->4] = 8.7
- +-----+-----+     +-----+-----+
+    +-----+-----+     +-----+-----+   dist[1->2] = 3.0
+    |  1  |  2  |     |  1  |  2  |   dist[1->3] = 0.1
+    | blk | red |     | 0.0 | 3.0 |   dist[1->4] = 8.8
+    +-----+-----+  >  +-----+-----+   dist[2->3] = 2.9
+    |  3  |  4  |     |  3  |  4  |   dist[2->4] = 5.8
+    | blu | yel |     | 0.1 | 8.8 |   dist[3->4] = 8.7
+    +-----+-----+     +-----+-----+
 
 So pixel 4 (yellow) is the furthest from the others and gets assigned into pixelgroup 'background'
 Pixel 1 (black) is has the furthest distance from pixel 4, and thus gets assigned to pixelgroup 'foreground'
 Both pixels 2 and 3 are closer to pixel 1 than to pixel 4, so both get also assigned to pixelgroup 'foreground'
 
- +-----+-----+     +-----+-----+
- |  1  |  2  |     | ███ | ███ |
- | fgr | fgr |     | ███ | ███ |
- +-----+-----+  >  +-----+-----+
- |  3  |  4  |     | ███ |     |
- | fgr | bgr |     | ███ |     |
- +-----+-----+     +-----+-----+
+    +-----+-----+     +-----+-----+
+    |  1  |  2  |     | ███ | ███ |
+    | fgr | fgr |     | ███ | ███ |
+    +-----+-----+  >  +-----+-----+
+    |  3  |  4  |     | ███ |     |
+    | fgr | bgr |     | ███ |     |
+    +-----+-----+     +-----+-----+
 
 So now we have our unicode character for the shape, but what about the colors?
 
 well, the background color should be easy, there is only one pixel in that group, so it will be that color (yellow)
 The remaining pixels need to be mixed into a color, so we add the RGB values of those pixels together and average them
 
- - [1] Black ==   0;  0;  0
- - [2] Red   == 255;  0;  0
- - [3] Blue  ==   0;  0;255 +
+   [1] Black ==   0;  0;  0
+   [2] Red   == 255;  0;  0
+   [3] Blue  ==   0;  0;255 +
                 -------------
                 255;  0;255  / 3  = 85;0;85
 
