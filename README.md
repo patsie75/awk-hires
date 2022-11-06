@@ -62,11 +62,13 @@ So now we have our unicode character for the shape, but what about the colors?
 well, the background color should be easy, there is only one pixel in that group, so it will be that color (yellow)
 The remaining pixels need to be mixed into a color, so we add the RGB values of those pixels together and average them
 
+```
    [1] Black ==   0;  0;  0
    [2] Red   == 255;  0;  0
    [3] Blue  ==   0;  0;255 +
                 -------------
                 255;  0;255  / 3  = 85;0;85
+```
 
 So the background color will be: 85;0;85 or #550055
 
