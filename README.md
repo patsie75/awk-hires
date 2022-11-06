@@ -1,7 +1,7 @@
 # awk-hires
 High-resolution graphics in awk
 
-Just to keep things interesting for myself, I dove into using unicode 'QUARTER-BLOCK' characters (four pixels per character) while still only using two colors! I hope you like the results.
+Just to keep things interesting for myself, I dove into using unicode 'QUARTER-BLOCK' characters (four pixels per character) while still only using two colors! I hope you like the results. Here is a example/comparison video with the original HALF-BLOCK characters:
 
 
 https://user-images.githubusercontent.com/32614987/200144651-7d8a33f3-9592-4e60-a669-fabee1602a67.mp4
@@ -82,7 +82,7 @@ Luckily there are some easy to calculate pixel/color orders.
  - If there are two and two the same pixels, still only two colors!
  - If there are two the same and two different pixels. pick the matching colors as foreground and mix the two remaining to an average
 
-These four scenarios handle about one third of most full colour pictures that I've tested with and can have some significant performance benefit to leverage. With some hashmap trickery in the code, we can avoid writing out long if/then/elseif/elseif/elseif/fi statements and do a single hashmap lookup to print the foureground/background colors and matching unicode character
+These four scenarios handle about one third of most full colour pictures that I've tested with and can have some significant performance benefit to leverage. With some hashmap trickery in the code, we can avoid writing out long if/then/elseif/elseif/elseif/fi statements and do a single hashmap lookup to print the foreground/background colors and matching unicode character
 
 ```
     ## 6 boolean values representing if pixels have the same color
@@ -111,4 +111,3 @@ and with a single sprintf() we can add the colors and unicode character to a 'li
 
 Any leftover color combinations (four different colored pixels) need to be handled by the first mentioned process
 
-An example of how this looks like, compared to the old '2 pixel' resolution:
